@@ -3,7 +3,7 @@ import { useState,useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Button, Col, Row, Card } from "react-bootstrap";
 import Carousel from 'react-bootstrap/Carousel';
-import { getProductThunk } from "../store/slices/ProductSlice";
+import { getProductThunk } from "../store/Slices/ProductSlice";
 import { createFavoriteThunk } from "../store/Slices/Favorites"
 
 
