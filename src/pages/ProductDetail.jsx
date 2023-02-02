@@ -12,6 +12,7 @@ const ProductDetail = ()=>{
     const {id} = useParams()
     const dispatch = useDispatch()
     const navigate = useNavigate();
+    
 
 
     useEffect(() => {
@@ -29,12 +30,12 @@ const ProductDetail = ()=>{
   
       if (token) {
        
-        const news = {
-          news: detail.id,
-          rate: rate
+        const id = {
+          id: detail.id,
+          quantity:5
         };
   
-        dispatch(createFavoriteThunk(news));
+        dispatch(createFavoriteThunk(id));
       } else {
       
         navigate("/login");

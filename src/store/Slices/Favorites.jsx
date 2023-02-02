@@ -17,20 +17,20 @@ export const getFavoritesThunk = () => dispatch => {
     dispatch( setIsLoading(true) )
 
     axios
-    .get("https://news-app-api.academlo.tech/favorites/", getConfig())
+    .get("https://e-commerce-api.academlo.tech/api/v1/cart", getConfig())
     .then( resp => {
-        dispatch( setFavorites( resp.data ) )
+        dispatch( setFavorites( resp.data.data ) )
     })
     .catch( error => console.error(error) )
     .finally( () => dispatch( setIsLoading(false) ) )
-
+   
 }
 
-export const createFavoriteThunk = (news) => (dispatch) => {
+export const createFavoriteThunk = (product) => (dispatch) => {
     dispatch(setIsLoading(true));
         axios
-        .post("https://news-app-api.academlo.tech/news/add_to_favorite/", news, getConfig())
-        .then((resp) => dispatch( getFavoritesThunk() ))
+        .post("https://e-commerce-api.academlo.tech/api/v1/cart", product, getConfig())
+        .then(resp => dispatch( getFavoritesThunk() ))
         .catch( error => console.error(error) )
         .finally(() => dispatch(setIsLoading(false)));
 }
