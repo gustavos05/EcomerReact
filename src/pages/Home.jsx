@@ -1,6 +1,6 @@
 import {useSelector,useDispatch} from 'react-redux'
 import { useEffect,useState} from "react";
-import {getProductThunk,filterCategoriesThunk} from "../Store/Slices/ProductSlice"
+import {getProductThunk,filterCategoriesThunk} from "../store/Slices/ProductSlice"
 import axios from "axios";
 import { Row, Col, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
