@@ -27,7 +27,7 @@ export const filterCategoriesThunk = (id) => (dispatch) => {
     dispatch(setIsLoading(true));
     
     axios
-    .get(`https://e-commerce-api.academlo.tech/api/v1/products/categories=${id}`)
+    .get(`https://e-commerce-api.academlo.tech/api/v1/products?category=${id}`)
     .then((resp) => {
     dispatch(setProducts(resp.data.data.products));
     })

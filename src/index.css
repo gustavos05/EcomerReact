@@ -3,9 +3,56 @@
   padding: 0;
   box-sizing: border-box;
 }
+.catButton{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 img{
   max-width: 100%;
+  max-height: 100%;
 }
+.wrapper{
+  height: 300px;
+}
+.cardT{
+  font-size: 18px;
+}
+.detailSection{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  justify-content: center;
+}
+.detailtex{
+  width: 40%;
+}
+.detailtex p {
+  text-align: justify;
+}
+
+.CSlider{
+  width: 50%;
+  max-height: 200px;
+  object-fit: contain;
+}
+.CSlider img{
+  max-height: 250px;
+  object-fit: contain;
+}
+.relatedW{ 
+  display: flex;
+  height: 200px;
+}
+.relatedimgWrapper{
+  max-height: 200px;
+  object-fit: contain;
+}
+.wrapper img{
+  max-height: 250px;
+  object-fit: contain;
+}
+
+
 .lds-spinner {
   color: official;
   display: inline-block;
