@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import isLoadingSlice from "./slices/isLoading.slice";
+import isLoadingSlice from "./Slices/isLoading.slice";
 import ProductSlice from "./slices/ProductSlice";
 
 
