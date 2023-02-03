@@ -43,7 +43,7 @@ console.log(favorites)
         {favorites.length !== 0 ? (
           favorites?.map((products) => <h5 key={products.title}>{products.title}  Quantity: {products.productsInCart.quantity}</h5>)
         ) : (
-          <h2>No hay productos seleccionados</h2>
+          <h2>There is no produts</h2>
         )}
 
         <Button onClick={checkoutCart} disabled={favorites.length === 0}>
