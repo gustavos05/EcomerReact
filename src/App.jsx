@@ -3,7 +3,7 @@ import {HashRouter,Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import ProductDetail from './pages/ProductDetail'
-import Purchased from './pages/Purchased'
+import Favorites from './pages/Favorites'
 import Loader from './components/Loader'
 import NavBar from "./components/Navbar";
 import {useSelector} from 'react-redux'
@@ -24,7 +24,7 @@ function App() {
         <Route path='/products/:id' element={<ProductDetail/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route element={<ProtectedRoutes/>}>
-        <Route path='/Purchased' element={<Purchased/>}/>
+        <Route path='/Favorites' element={<Favorites/>}/>
         </Route>
       </Routes>
     </HashRouter>

@@ -19,8 +19,8 @@ const NavBar = () => {
                 <Navbar.Brand as={ Link } to="/" >E-commerce</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link as={ Link } to="/Login">Login</Nav.Link>
-                    <Nav.Link as={ Link } to="/Purchased">Purchased</Nav.Link>
-                    <Nav.Link onClick={ handleShow }>Favorites (sidebar)</Nav.Link>
+                    <Nav.Link as={ Link } to="/Favorites">Purchased</Nav.Link>
+                    <Nav.Link onClick={ handleShow }>Shop Cart</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>

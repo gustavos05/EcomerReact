@@ -33,7 +33,7 @@ const SideBar = ({ show, handleClose }) => {
       .then((resp) => setFavorites([]))
       .catch((error) => console.error(error));
   };
-
+console.log(favorites)
   return (
     <Offcanvas show={show} onHide={handleClose} placement={"end"}>
       <Offcanvas.Header closeButton>
@@ -41,7 +41,7 @@ const SideBar = ({ show, handleClose }) => {
       </Offcanvas.Header>
       <Offcanvas.Body>
         {favorites.length !== 0 ? (
-          favorites?.map((products) => <h5 key={products.title}>{products.title}</h5>)
+          favorites?.map((products) => <h5 key={products.title}>{products.title}  Quantity: {products.productsInCart.quantity}</h5>)
         ) : (
           <h2>No hay productos seleccionados</h2>
         )}

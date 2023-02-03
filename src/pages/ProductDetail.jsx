@@ -4,15 +4,15 @@ import { useDispatch, useSelector } from "react-redux"
 import { Button, Col, Row, Card } from "react-bootstrap";
 import Carousel from 'react-bootstrap/Carousel';
 import { getProductThunk } from "../store/Slices/ProductSlice";
-import { createFavoriteThunk } from "../store/Slices/Favorites"
-
+import { createFavoriteThunk } from "../store/Slices/favorites.slice"
+import { Link } from "react-router-dom";
 
 const ProductDetail = ()=>{
 
     const {id} = useParams()
     const dispatch = useDispatch()
     const navigate = useNavigate();
-    
+    const [quantity, setQuantity] = useState(0);
 
 
     useEffect(() => {
@@ -32,7 +32,7 @@ const ProductDetail = ()=>{
        
         const id = {
           id: detail.id,
-          quantity:5
+          quantity: quantity
         };
   
         dispatch(createFavoriteThunk(id));
@@ -77,6 +77,11 @@ const ProductDetail = ()=>{
              <h1>{detail?.title}</h1>
              <p>{detail?.description}</p>
              <h3>Price: {detail?.price}</h3>
+             <div className="mb-3">
+        <Button onClick={() => setQuantity(quantity - 1)}>-</Button>
+        {quantity}
+        <Button onClick={() => setQuantity(quantity + 1)}>+</Button>
+      </div>
              <Button className="mb-3" onClick={addToFavorites}>
               Add to cart
             </Button>
@@ -120,8 +125,12 @@ const ProductDetail = ()=>{
     </div>
               <Card.Body>
                 <Card.Title className='cardT'>{Item.title}</Card.Title>
-                <Card.Text>Price:</Card.Text>
-    
+                <Card.Text>Price:
+                  <h3>{Item?.price}</h3>
+                </Card.Text>
+                <Button variant="primary" as={Link} to={`/products/${Item?.id}`}>
+                  See details
+                </Button>
               </Card.Body>
             </Card>
             
