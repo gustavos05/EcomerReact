@@ -1,16 +1,20 @@
 import {useSelector,useDispatch} from 'react-redux'
 import { useEffect,useState} from "react";
-import {getProductThunk,filterCategoriesThunk} from "../store/Slices/ProductSlice"
+import {getProductThunk,filterCategoriesThunk,filterByTermThunk} from "../store/Slices/ProductSlice"
 import axios from "axios";
 import { Row, Col, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Carousel from 'react-bootstrap/Carousel';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+
 
 
 const Home = ()=>{
   const dispatch = useDispatch();
   const product =  useSelector(state => state.product);
   const [categories, setCategories] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
 
  useEffect(() => {
  dispatch(getProductThunk());
@@ -19,6 +23,10 @@ const Home = ()=>{
       .then((resp) => setCategories(resp.data.data.categories))
       .catch((error) => console.error(error));
 },[])
+
+const filterByTerm = () => {
+  dispatch(filterByTermThunk(searchValue));
+};
 
     return (
     <div>
@@ -34,6 +42,19 @@ const Home = ()=>{
        
          ))} 
          </div>
+
+         <InputGroup className="mb-3">
+        <Form.Control
+          placeholder="what are you looking"
+          aria-label="what are you looking "
+          aria-describedby="basic-addon2"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+        <InputGroup.Text id="basic-addon2" as='button' onClick={filterByTerm}>search</InputGroup.Text>
+      </InputGroup>
+
+
          <Row xs={1} md={3} lg={3}>
         {product?.map((productItem) => (
           <Col key={productItem.id}>
