@@ -15,8 +15,8 @@ export const ProductSlice = createSlice({
 export const getProductThunk = () =>(dispatch) => {
     dispatch(setIsLoading(true));
     axios
-    .get("https://e-commerce-api.academlo.tech/api/v1/products")
-    .then(resp => dispatch(setProducts(resp.data.data.products)))
+    .get("http://localhost:8080/products")
+    .then(resp => dispatch(setProducts(resp.data)))
     .catch(error=>console.error(error))
     .finally(()=>dispatch(setIsLoading(false)))
 }
@@ -27,10 +27,8 @@ export const filterCategoriesThunk = (id) => (dispatch) => {
     dispatch(setIsLoading(true));
     
     axios
-    .get(`https://e-commerce-api.academlo.tech/api/v1/products?category=${id}`)
-    .then((resp) => {
-    dispatch(setProducts(resp.data.data.products));
-    })
+    .get(`http://localhost:8080/category/${id}`)
+    .then((resp) => { dispatch(setProducts(resp.data.products))})
     .catch((error) => console.error(error))
     .finally(() => dispatch(setIsLoading(false)));
 };

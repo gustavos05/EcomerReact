@@ -15,12 +15,13 @@ const Home = ()=>{
   const product =  useSelector(state => state.product);
   const [categories, setCategories] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  console.log(product)
 
  useEffect(() => {
  dispatch(getProductThunk());
  axios
-      .get("https://e-commerce-api.academlo.tech/api/v1/products/categories")
-      .then((resp) => setCategories(resp.data.data.categories))
+      .get("http://localhost:8080/category")
+      .then((resp) => setCategories(resp.data))
       .catch((error) => console.error(error));
 },[])
 

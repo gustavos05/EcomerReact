@@ -9,9 +9,9 @@ const SideBar = ({ show, handleClose }) => {
 
   useEffect(() => {
     axios
-      .get("https://e-commerce-api.academlo.tech/api/v1/cart", getConfig())
+      .get("http://localhost:8080/cart", getConfig())
       .then((resp) => {
-        setFavorites(resp.data.data.cart.products);
+        setFavorites(resp.data);
         console.log(resp.data);
       })
       .catch((error) => console.error(error));
@@ -41,7 +41,7 @@ console.log(favorites)
       </Offcanvas.Header>
       <Offcanvas.Body>
         {favorites.length !== 0 ? (
-          favorites?.map((products) => <h5 key={products.title}>{products.title}  Quantity: {products.productsInCart.quantity}</h5>)
+          favorites?.map((products) => <h5 key={products.product.title}>{`${products.product.title}`} Quantity: {`${products.quantity}`}</h5>)
         ) : (
           <h2>There is no produts</h2>
         )}

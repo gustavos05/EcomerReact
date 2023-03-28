@@ -21,10 +21,10 @@ const Login = () => {
     };
 
     axios
-      .post("https://e-commerce-api.academlo.tech/api/v1/users/login", data)
+      .post("http://localhost:8080/users/login", data)
       .then((resp) => {
         console.log(resp)
-        localStorage.setItem("token", resp.data.data.token);
+        localStorage.setItem("token", resp.data.token);
         navigate("/");
       })
       .catch((error) => {

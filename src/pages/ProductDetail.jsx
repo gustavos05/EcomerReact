@@ -21,6 +21,8 @@ const ProductDetail = ()=>{
   
     const allProducts = useSelector((state) => state.product);
     const detail = allProducts.find((products) => products.id === Number(id));
+    console.log(allProducts)
+    console.log(detail)
     const productsRelated = allProducts.filter(
       (product) => product.category.name === detail.category.name
     )
@@ -31,7 +33,7 @@ const ProductDetail = ()=>{
       if (token) {
        
         const id = {
-          id: detail.id,
+          productId: detail.id,
           quantity: quantity
         };
   
